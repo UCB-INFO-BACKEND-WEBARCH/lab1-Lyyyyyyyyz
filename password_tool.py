@@ -54,7 +54,7 @@ def check_password_strength(password):
     score = 0
     feedback = []
 
-    # Length checks
+# step 1
     if len(password) >= 12:
         score += 30
     elif len(password) >= 8:
@@ -82,17 +82,17 @@ def check_password_strength(password):
     else:
         feedback.append("Add at least one special character.")
 
-    # Common password check
+#Step 2
    
     if password.lower() not in COMMON_PASSWORDS:
         score += 10
     else:
         feedback.append("Password is too common.")
 
-    # Cap score at 100
+
     score = min(score, 100)
 
-    # Strength classification
+  # strnegth 
     if score >= 70:
         strength = "Strong"
     elif score >= 40:
